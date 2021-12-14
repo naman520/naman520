@@ -1,0 +1,113 @@
+import tkinter as tk
+from tkinter import ttk
+import csv
+
+
+f = open("try36.csv", 'a', newline="")
+naman = csv.writer(f)
+
+win = tk.Tk()
+win.title('GUPTA RETAIL STORE BILL')
+
+style = ttk.Style()
+style.configure("BW.TLabel", foreground="black", background="white")
+
+# creating labels
+
+name_label = ttk.Label(win, text="CUSTOMER NAME       ")
+name_label.grid(row=0, column=0, sticky=tk.W, ipadx=36, ipady=12)
+name_label.config(style="BW.TLabel")
+
+product_type_label = ttk.Label(win, text="PRODUCT TYPE     ")
+product_type_label.grid(row=1, column=0, sticky=tk.W, ipadx=36, ipady=12)
+product_type_label.config(style="BW.TLabel")
+
+amount_label = ttk.Label(win, text="AMOUNT         ")
+amount_label.grid(row=2, column=0, sticky=tk.W, ipadx=36, ipady=12)
+amount_label.config(style="BW.TLabel")
+
+gst_label = ttk.Label(win, text='GST     ')
+gst_label.grid(row=3, column=0, sticky=tk.W, ipadx=36, ipady=12)
+gst_label.config(style="BW.TLabel")
+
+total_tax_label = ttk.Label(win, text="TOTAL TAX       ")
+total_tax_label.grid(row=4, column=0, sticky=tk.W, ipadx=36, ipady=12)
+total_tax_label.config(style="BW.TLabel")
+
+total_amount_label = ttk.Label(win, text="TOTAL AMOUNT TO BE PAID         ")
+total_amount_label.grid(row=5, column=0, sticky=tk.W, ipadx=36, ipady=12)
+total_amount_label.config(style="BW.TLabel")
+
+transaction_label = ttk.Label(win, text="TRANSACTION ID  ::::    ")
+transaction_label.grid(row=6, column=0, sticky=tk.W, ipadx=36, ipady=12)
+transaction_label.config(style="BW.TLabel")
+
+# create entry box
+
+
+name_entrybox = ttk.Entry(win, width=20, )
+name_entrybox.grid(row=0, column=1, padx=36, pady=12)
+
+product_type_entrybox = ttk.Entry(win, width=20)
+product_type_entrybox.grid(row=1, column=1, padx=36, pady=12)
+
+amount_entrybox = ttk.Entry(win, width=20)
+amount_entrybox.grid(row=2, column=1, padx=36, pady=12)
+
+gst_entrybox = ttk.Entry(win, width=20)
+gst_entrybox.grid(row=3, column=1, padx=36, pady=12)
+
+
+def action():
+    try:
+        name = str(name_entrybox.get())
+        product_type = str(product_type_entrybox.get())
+        amount = int(amount_entrybox.get())
+        gst = float(gst_entrybox.get())
+        total_tax = ((amount * gst) / 100)
+        total_amount = (amount + total_tax)
+        #tran_id = random.randint(100000000000000, 999999999999999)
+        print(name, product_type, amount, gst, total_tax, total_amount, tran_id)
+        naman.writerow([name, product_type, amount, gst, total_tax, total_amount, tran_id])
+        name_entrybox.delete(0, tk.END)
+        product_type_entrybox.delete(0, tk.END)
+        amount_entrybox.delete(0, tk.END)
+        gst_entrybox.delete(0, tk.END)
+        total_tax_var.config(text="")
+        total_amount_var.config(text="")
+        #tran_id.config(text="")
+
+    except:
+        print("ENTER THE DATA......")
+
+
+def calculate():
+    try:
+        amount = int(amount_entrybox.get())
+        gst = float(gst_entrybox.get())
+        total_tax = ((amount * gst) / 100)
+        total_tax_var.grid(row=4, column=1)
+        total_amount_var.grid(row=5, column=1)
+        #tran_id.grid(row=6, column=1)
+        total_tax_var.config(text=(amount * gst) / 100)
+        total_amount_var.config(text=(amount + total_tax))
+
+    except:
+        print("ENTER THE DATA..........")
+
+
+total_tax_var = ttk.Label(win, text='')
+total_amount_var = ttk.Label(win, text='')
+#tran_id = ttk.Label(win, text='')
+
+submit_button = ttk.Button(win, text="SAVE BILL", command=action)
+submit_button.grid(row=7, column=1, ipadx=36, ipady=12)
+
+submit_button = ttk.Button(win, text="CALCULATE", command=calculate)
+submit_button.grid(row=7, column=0, ipadx=36, ipady=12)
+
+win.mainloop()
+f.close()
+
+#transaction details will be added soon 
+#for any addition you are most welcome
