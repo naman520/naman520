@@ -1,8 +1,8 @@
 - 👋 Hi, I’m @naman520
 - 👀 I’m interested in PYTHON & FULL STACK DEVELOPMENT
-- 🌱 I’m currently student B. TECH CSE
-- 💞️ I’m looking to collaborate on PYTHON
-- 📫 How to reach me INSTAGRAM 
+- 🌱 I’m currently student B.TECH CSE
+- 💞️ I can work in c++ and python as well.Always willing to gain knowledge.
+- 📫 
 
 <!---
 naman520/naman520 is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
