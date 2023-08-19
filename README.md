@@ -1,5 +1,5 @@
 - 👋 Hi, I’m @naman520
-- 👀 I’m interested in PYTHON & FULL STACK DEVELOPMENT
+- 👀 I’m interested in PYTHON
 - 🌱 I’m currently student B.TECH CSE
 - 💞️ I can work in c++ and python as well.Always willing to gain knowledge.
 - 📫 
